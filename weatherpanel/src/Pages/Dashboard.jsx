@@ -14,7 +14,7 @@ import {
 const Dashboard = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(true);
   const [users, setUsers] = useState([]);
-  const socket = io("http://localhost:3001");
+  const socket = io(`${process.env.BOT_URL}`);
   useEffect(() => {
     const validateUser = async () => {
       const isLoggedIn = localStorage.getItem("isAuthenticated") === "true"; // Check if the user is already logged in
