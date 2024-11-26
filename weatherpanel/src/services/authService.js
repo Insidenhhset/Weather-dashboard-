@@ -1,8 +1,7 @@
 const login = async (email, password) => {
   try {
-    const baseURL = process.env.BACKEND_URL;
-
-    const response = await fetch(`${baseURL}/api/auth/login`, {
+  
+    const response = await fetch(`https://weatherbotdashboard.onrender.com/api/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,9 +44,9 @@ const logout = async () => {
 
 const signup = async (email, password) => {
   try {
-    const baseURL = process.env.BACKEND_URL;
-    console.log("Base URL:", baseURL);
-    const response = await fetch(`${baseURL}/api/auth/signup`, {
+  
+
+    const response = await fetch(`https://weatherbotdashboard.onrender.com/api/auth/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -79,8 +78,8 @@ const signup = async (email, password) => {
 
 const fetchUsers = async () => {
   try {
-    const boturl = process.env.BOT_URL;
-    const response = await fetch(`${boturl}/api/users`, {
+ 
+    const response = await fetch(`https://weather-dashboard-o0hy.onrender.com/api/users`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -96,8 +95,8 @@ const fetchUsers = async () => {
 
 const BlockUser = async (chatId) => {
   try {
-    const boturl = process.env.BOT_URL;
-    const response = await fetch(`${boturl}/api/block`, {
+   
+    const response = await fetch(`https://weather-dashboard-o0hy.onrender.com/api/block`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -131,8 +130,8 @@ const BlockUser = async (chatId) => {
 
 const DeleteUser = async (chatId) => {
   try {
-    const boturl = process.env.BOT_URL;
-    const response = await fetch(`${boturl}/api/delete`, {
+  
+    const response = await fetch(`https://weather-dashboard-o0hy.onrender.com/api/delete`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -166,7 +165,7 @@ const DeleteUser = async (chatId) => {
 
 const getApiKeys = async () => {
   try {
-    const boturl = process.env.BOT_URL;
+  
 
     const adminToken = localStorage.getItem("authToken");
 
@@ -175,7 +174,7 @@ const getApiKeys = async () => {
       return;
     }
 
-    const response = await fetch(`${boturl}/api/apikeys`, {
+    const response = await fetch(`https://weather-dashboard-o0hy.onrender.com/api/apikeys`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${adminToken}`,
@@ -202,10 +201,10 @@ const getApiKeys = async () => {
 
 const updateApiKeys = async (updates) => {
   try {
-    const boturl = process.env.BOT_URL;
+    
     const adminToken = localStorage.getItem("authToken");
 
-    const response = await fetch(`${boturl}/api/apikeys`, {
+    const response = await fetch(`https://weather-dashboard-o0hy.onrender.com/api/apikeys`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -229,14 +228,14 @@ const updateApiKeys = async (updates) => {
 
 const checkValidUser = async () => {
   try {
-    const boturl = process.env.BACKEND_URL;
+   
     const token = localStorage.getItem("authToken");
 
     if (!token) {
       return { status: 401 };
     }
 
-    const response = await fetch(`${boturl}/api/auth/dashboard`, {
+    const response = await fetch(`https://weatherbotdashboard.onrender.com/api/auth/dashboard`, {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
