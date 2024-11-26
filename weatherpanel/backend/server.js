@@ -23,6 +23,7 @@ app.use(cors());
 app.use(express.json()); // to parse incoming json requests
 
 ConnectDB();
+console.log(allowedOrigin);
 
 app.use("/api/auth", userRoutes);
 
